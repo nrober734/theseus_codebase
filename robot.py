@@ -3,6 +3,7 @@ from gpiozero import Robot
 # initialize robot w/ correct pin numbers
 THESEUS = Robot(left=(7,8), right=(9,10))
 MAX_SPEED = 0.5
+stay_in_lane = True
 
 # initialize all sensors on the robot
 
@@ -20,6 +21,7 @@ MAX_SPEED = 0.5
 
 # if photoresistor detects limited visibility, turn on headlamps
 # also begin tracking to centerline instead of lane markers
+stay_in_lane = False
 
 
 # if we end program, stop robot
