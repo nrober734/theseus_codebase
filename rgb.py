@@ -14,10 +14,17 @@ sensor = adafruit_tcs34725.TCS34725(i2c)
 
 # take in input and process to determine color
 
-
 # if input is a light color, line is being sensed
 # return true
 
 # if input is a dark color, return false
+
+
+
+#combine 3 sensors, track to lane marking
+
+
+
+#combine 3 sensors, track to centerline
 
 
