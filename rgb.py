@@ -42,13 +42,13 @@ class rgb_sensor:
         return r,g,b,c
 
     def getR(self):
-        return r
+        return self.r
 
     def getG(self):
-        return g
+        return self.g
 
     def getB(self):
-        return b
+        return self.b
 
     def getC(self):
-        return c
+        return self.c
