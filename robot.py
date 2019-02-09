@@ -1,6 +1,7 @@
 from gpiozero import Robot
 from rgb import *
 from sound import *
+from gpiozero import LED
 
 <<<<<<< HEAD
 robby = Robot(left=(24,8), right=(9,22))
@@ -24,6 +25,8 @@ stay_in_lane = True
 rgb1 = rbg_sensor()
 rgb2 = rbg_sensor()
 rgb3 = rbg_sensor()
+headlamp1 = LED()
+headlamp2 = LED()
 
 # until we stop the robot, continue looping
 
