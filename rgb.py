@@ -3,25 +3,30 @@ import time
 import board
 import busio
 
+from config import *
+
 import adafruit_tcs34725
 
 class rgb_sensor:
-  'Class to initialize and use the rgb sensors for the THESEUS robot'
-  def __init__(self):
-    # Initialize I2C bus and sensor.
-    i2c = busio.I2C(board.SCL, board.SDA)
-    self.sensor = adafruit_tcs34725.TCS34725(i2c)
-    
-  def process_input(self):
-    # take in input and process to determine color
-    
-    # if input is a light color, line is being sensed, return true
-    
-    # if input is a darker color, line is not sensed, return false
+    'Class to initialize and use the rgb sensors for the THESEUS robot'
+    def __init__(self):
+        r, b, g, c
+        # Initialize I2C bus and sensor.
+        i2c = busio.I2C(board.SCL, board.SDA)
+        self.sensor = adafruit_tcs34725.TCS34725(i2c)
 
+    def process_input(self):
+        # take in input and process to determine color
+        self.r, self.b, self.g, self.c = 0, 0, 0, 0
+        self.sensor.getRawInput(r, b, g, c)
 
-#combine 3 sensors, return 
+    def on_line(r, g, b, c):
+        r_difference = abs(self.r - r)
+        g_difference = abs(self.g - g)
+        b_difference = abs(self.b - b)
 
-
-# helper functions, convert input to RGB values, limits on what is considered dark/light
+        if r_difference < r_allowable AND g_difference < g_allowable AND b_difference < b_allowable:
+            return true
+        else:
+            return false
 
