@@ -21,9 +21,9 @@ class rgb_sensor:
         self.sensor.getRawInput(r, b, g, c)
 
     def on_line(r, g, b, c):
-        r_difference = abs(self.r - r)
-        g_difference = abs(self.g - g)
-        b_difference = abs(self.b - b)
+        r_difference = abs(self.r - r_line)
+        g_difference = abs(self.g - g_line)
+        b_difference = abs(self.b - b_line)
 
         if r_difference < r_allowable AND g_difference < g_allowable AND b_difference < b_allowable:
             return true
