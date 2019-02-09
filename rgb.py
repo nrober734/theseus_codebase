@@ -40,3 +40,15 @@ class rgb_sensor:
         c = rgblist[3]
 
         return r,g,b,c
+
+    def getR(self):
+        return r
+
+    def  getG(self):
+        return g
+
+    def getB(self):
+        return b
+
+    def getC(self):
+        return c
