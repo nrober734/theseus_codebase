@@ -11,6 +11,8 @@ MAX_SPEED = 0.5
 
 # check to make sure robot is within lines, if not, adjust
 
+# if robot isn't turning, ensure that the blinker is off
+
 # if robot is turning, turn on the correct blinker
 
 # check to make sure there isn't an ambulance noise
