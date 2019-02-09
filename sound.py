@@ -7,11 +7,19 @@ class sound_sensor:
   def __init__(self):
     # init sound sensor
     pin_num = 12
-    GPIO.setmode(GPIO.BOARD) # use board pin numbers
+    GPIO.setmode(GPIO.BCM)
     GPIO.setup(pin_num, GPIO.IN)
     
     
   def ambulance_approaching(self):
     # check to see if there is a loud ambulance noise, if so, return true
-    if GPIO.input(pin_num)==1:
-      return True
+    clock = 0
+    total = 0
+    while clock != 100:
+      clock += GPIO.input(pin_num)
+      total++
+      
+    if clock / total > 0.75:
+      return true
+    else:
+      return false
