@@ -44,7 +44,7 @@ class rgb_sensor:
     def getR(self):
         return r
 
-    def  getG(self):
+    def getG(self):
         return g
 
     def getB(self):
