@@ -1,17 +1,13 @@
 from gpiozero import Robot
 
-robby = Robot(left=(7,8), right=(9,10))
-robby.forward(0.4)
-robby.right(0.4)
+robby = Robot(left=(24,8), right=(9,22))
 
-## e.g. change
-robby = Robot(left=(7,8), right=(9,10))
-## to
-robby = Robot(left=(9,10), right=(7,8))
+#print("fuck off")
 
-robby.forward(0.4)
+while 1==1:
+	robby.forward(.5)
+	#robby.right()
 
-## e.g. change
-robby = Robot(left=(9,10), right=(7,8))
-## to
-robby = Robot(left=(9 10), right=(8,7))
+	print("fuck off")
+
+
