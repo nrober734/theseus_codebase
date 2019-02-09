@@ -17,7 +17,7 @@ class sound_sensor:
     total = 0
     while clock != 100:
       clock += GPIO.input(pin_num)
-      total++
+      total += 1
       
     if clock / total > 0.75:
       return true
