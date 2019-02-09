@@ -1,4 +1,7 @@
 from gpiozero import Robot
+from rgb import *
+from sound import *
+
 
 # initialize robot w/ correct pin numbers
 THESEUS = Robot(left=(7,8), right=(9,10))
@@ -6,7 +9,9 @@ MAX_SPEED = 0.5
 stay_in_lane = True
 
 # initialize all sensors on the robot
-
+rgb1 = rbg_sensor()
+rgb2 = rbg_sensor()
+rgb3 = rbg_sensor()
 
 # until we stop the robot, continue looping
 
