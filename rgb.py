@@ -39,4 +39,4 @@ class rgb_sensor:
         b = rgblist[2]
         c = rgblist[3]
 
-        return r,g,b,class
+        return r,g,b,c
