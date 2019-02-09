@@ -1,17 +1,25 @@
 from gpiozero import Robot
 
-robby = Robot(left=(7,8), right=(9,10))
-robby.forward(0.4)
-robby.right(0.4)
+# initialize robot w/ correct pin numbers
+THESEUS = Robot(left=(7,8), right=(9,10))
+MAX_SPEED = 0.5
 
-## e.g. change
-robby = Robot(left=(7,8), right=(9,10))
-## to
-robby = Robot(left=(9,10), right=(7,8))
+# initialize all sensors on the robot
 
-robby.forward(0.4)
 
-## e.g. change
-robby = Robot(left=(9,10), right=(7,8))
-## to
-robby = Robot(left=(9 10), right=(8,7))
+# until we stop the robot, continue looping
+
+# check to make sure robot is within lines, if not, adjust
+
+# if robot is turning, turn on the correct blinker
+
+# check to make sure there isn't an ambulance noise
+# if so, pull over and stop until it stops
+
+# if photoresistor detects limited visibility, turn on headlamps
+# also begin tracking to centerline instead of lane markers
+
+
+# if we end program, stop robot
+THESEUS.stop()
+
