@@ -8,24 +8,24 @@ class THESEUS:
     'class that controls the motor on the robot'
     THESEUS_turning = Robot(left=(,), right=(,))
     THESEUS_direction = Robot(left=(,), right=(,))
-    
+
     def __init__(self):
 
     def forward_straight(self, time, speed):
         for i in range(time):
-            THESEUS_direction.forward(speed)
+           self. THESEUS_direction.forward(speed)
 
-    def forward_right(self, time):
+    def forward_right(self, time, speed):
         for i in range(time):
-            THESEUS_direction.forward(speed)
-            THESEUS_turning.forward(speed);
+            self.THESEUS_direction.forward(speed)
+            self.THESEUS_turning.forward(speed);
 
-    def forward_left(self, time):
+    def forward_left(self, time, speed):
         for i in range(time):
-            THESEUS_direction.forward(speed)
-            THESEUS_turning.backward(speed)
+            self.THESEUS_direction.forward(speed)
+            self.THESEUS_turning.backward(speed)
 
     def all_stop(self):
-        THESEUS_direction.stop()
-        THESEUS_turning.stop()
+        self.THESEUS_direction.stop()
+        self.THESEUS_turning.stop()
 

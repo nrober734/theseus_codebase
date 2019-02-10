@@ -10,16 +10,20 @@ import lcm
 from picamera import PiCamera
 from time import sleep
 
+from lights import *
+
 #RGB
 import time
 import board
 import busio
 import adafruit_tcs34725
 import serial
+from rgb import *
 
 #Big noise
 import RPi.GPIO as GPIO
-import sound
+from sound import *
+
 
 # returns 0 if continuing straight, 1 if should turn left, 2 if should turn right
 # if turning, will also return a non-zero value of intensity
@@ -56,16 +60,27 @@ def make_decision(state, centerline):
     intersection_count = 0
     if state.soundLevel == True:
         # pull the fuck over
+        robot.forward_right(1, high_speed)
+        robot.all_stop()
 
     elif state.photoResistor == True:
         # turn on headlights
+        light.headlamps(True)
     else:
         # turn off headlights
+        light.headlamps(False)
         if state.trafficLight == 4 or state.trafficLight == 3:
             direction_and_speed = choose_direction(state, centerline, intersection_count)
-            if direction_and_speed[0] != 0 and direction_and_speed[1] != low_speed:
-                # turn on turn indicators
+            if direction_and_speed[0] == 0:
+                robot.forward_straight(1,1)
+            elif direction_and_speed[0] == 1:
+                light.turn_left()
+                robot.forward_left(1, direction_and_speed[1])
+            else:
+                light.turn_right()
+                robot_forward_right(1, direction_and_speed[1])
         else:
             # light is yellow or red, so  stop
+            robot.all_stop()
 
             
