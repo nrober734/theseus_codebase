@@ -2,7 +2,7 @@ import sys, time
 import RPi.GPIO as GPIO
 
 right_headlamp = 24
-photo_sensor = 19
+photo_sensor = 13
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(right_headlamp, GPIO.OUT)
