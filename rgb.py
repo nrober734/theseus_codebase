@@ -65,8 +65,8 @@ class rgb_sensor:
     def getC(self):
         return self.c
 
-    
-def on_line(r, g, b)
+
+def on_line(r, g, b):
     r_difference = abs(r_line - r)
     g_difference = abs(r_line - g)
     b_difference = abs(r_line - b)
