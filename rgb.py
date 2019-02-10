@@ -22,15 +22,6 @@ class rgb_sensor:
         # take in input and process to determine color
         self.sensor.getRawInput(r, b, g, c)
 
-    def on_line(self,r, g, b, c):
-        r_difference = abs(self.r - r)
-        g_difference = abs(self.g - g)
-        b_difference = abs(self.b - b)
-
-        if r_difference < r_allowable and g_difference < g_allowable and b_difference < b_allowable:
-            return true
-        else:
-            return false
 
     def raw_ardu_input(self,ser_ch):
         #takes in arduino serial input and returns separate r,g,b,c values
@@ -73,3 +64,14 @@ class rgb_sensor:
 
     def getC(self):
         return self.c
+
+    
+def on_line(r, g, b)
+    r_difference = abs(r_line - r)
+    g_difference = abs(r_line - g)
+    b_difference = abs(r_line - b)
+
+    if r_difference < r_allowable and g_difference < g_allowable and b_difference < b_allowable:
+        return true
+    else:
+        return false
