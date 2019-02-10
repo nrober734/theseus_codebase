@@ -110,6 +110,8 @@ while 1==1:
     #call image processing module to return light color
     color = get_Color(dirNew)
 
+    os.delete(dirNew)
+    os.delete(dir)
 
     #publish Tlight LCM
     msg.present = yeah_light
