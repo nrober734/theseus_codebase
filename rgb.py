@@ -50,7 +50,7 @@ class rgb_sensor:
         rgblist = []
         counter = 0
         while counter < 9:
-            rgblist.append(raw_ardu_input(ser_ch))
+            rgblist.append(self.raw_ardu_input(ser_ch))
 
 
 
