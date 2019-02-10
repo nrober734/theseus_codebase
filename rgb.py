@@ -47,15 +47,15 @@ class rgb_sensor:
     def ardu_RGB_input(self,string):
 
         for k in range(7):
-            if string[k] is not ' ':
+            if string is not ' ':
                 if k==0:
-                    self.r = int(string[k])
+                    self.r = int(string)
                 elif k==3:
-                    self.g == int(string[k])
+                    self.g == int(string)
                 elif k==5:
-                    self.b == int(string[k])
+                    self.b == int(string)
                 elif k==7:
-                    self.c == int(string[k])
+                    self.c == int(string)
 
         return [self.r,self.g,self.b,self.c]
 
