@@ -37,7 +37,7 @@ class rgb_sensor:
         #ser_input = str(ser_ch.readline(),"utf-8")
         ser_input = str(ser_ch.read(),'utf-8')
         if ser_input.isalpha():
-            ser_input = ' '
+            ser_input = ''
         #rgblist = ser_input.split()
         # self.r = rgblist[0]
         # self.g = rgblist[1]
@@ -49,10 +49,14 @@ class rgb_sensor:
         #return self.r,self.g,self.b,self.c
 
     def ardu_RGB_input(self,ser_ch):
+        colorlist = []
         rgblist = []
         counter = 0
-        while ' ' not in self.raw_ardu_input(ser_ch):
-            rgblist.append(self.raw_ardu_input(ser_ch))
+        while counter < 5
+            while ' ' not in self.raw_ardu_input(ser_ch):
+                colorlist.append(self.raw_ardu_input(ser_ch))
+            rgblist.append(colorlist)
+            counter+=1
 
 
 
