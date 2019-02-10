@@ -13,7 +13,7 @@ class rgb_sensor:
         #self.r, self.b, self.g, self.c
         # Initialize I2C bus and sensor.
         self.i2c = busio.I2C(board.SCL, board.SDA)
-        self.sensor = adafruit_tcs34725.TCS34725(i2c)
+        self.sensor = adafruit_tcs34725.TCS34725(self.i2c)
 
     def process_input(self):
         # take in input and process to determine color
