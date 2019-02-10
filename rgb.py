@@ -53,7 +53,7 @@ class rgb_sensor:
         #     colorlist.append(self.raw_ardu_input(ser_ch))
         while counter < 4:
             temp = self.raw_ardu_input(ser_ch)[2]
-            print (temp)
+            #print (temp)
             if temp.isdigit():
                 colorlist.append(temp)
             if " " in temp:
@@ -61,13 +61,16 @@ class rgb_sensor:
                 rgblist.append(colorlist)
                 colorlist = []
 
+        self.r = int(''.join(colorlist[0]))
+        self.g = int(''.join(colorlist[1]))
+        self.b = int(''.join(colorlist[2]))
+        self.c = int(''.join(colorlist[3]))
+
+        rgbcVal = [self.r,self.g,self.b,self.c]
 
 
 
-
-
-
-        return rgblist
+        return rgbcVal
 
     def getR(self):
         return self.r
