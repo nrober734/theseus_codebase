@@ -24,10 +24,27 @@ import serial
 import RPi.GPIO as GPIO
 import sound
 
+left_serial = serial.Serial("/dev/ttyACM0",9600)  #change ACM number as found from ls /dev/tty/ACM*
+left_serial.baudrate = 9600
+
+right_serial = serial.Serial("/dev/ttyACM1",9600)  #change ACM number as found from ls /dev/tty/ACM*
+right_serial.baudrate = 9600
+
+center_sensor = rgb_sensor()
+center_sensor.init_rp_sensor()
+
+
+
 def get_RGB(q):
+    left_sensor =  rgb_sensor()
+    left_rgb = left_sensor.ardu_RGB_input(left_serial)
+    center_rgb = center_sensor.process_input()
+    right_sensor = rgb_sensor()
+    right_rgb = right_sensor.ardu_RGB_input(right_serial)
+
+    rgb = [left_rgb, center_rgb, right_rgb]
 
     return rgb
-    #from amtuko
 
 def get_bignoise(q):
 
@@ -71,8 +88,8 @@ p2.start()
 
 while 1==1:
 
-    RGB = que_RGB.get()
-    ambulance = que_bigNoise.get()
+    RGB = q_RGB.get()
+    ambulance = q_bigNoise.get()
 
     #Subscribe to the traffic light from the camera controller
 

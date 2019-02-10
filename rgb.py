@@ -24,7 +24,7 @@ class rgb_sensor:
     def process_input(self):
         # take in input and process to determine color
         self.sensor.getRawInput(r, g, b, c)
-
+        return [r, g, b, c]
 
     def raw_ardu_input(self,ser_ch):
         #takes in arduino serial input and returns separate r,g,b,c values
