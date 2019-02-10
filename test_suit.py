@@ -11,7 +11,7 @@ ruthbaderginsberg = rgb_sensor()
 print ("We aboutta go in")
 while True:
     print("We made it in bb")
-    results = str(ruthbaderginsberg.ardu_input(ser),"utf-8")
+    results = ruthbaderginsberg.ardu_input(ser)
     print(results)
 print("We didn't make it in")
     # for i in results:
