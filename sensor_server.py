@@ -53,9 +53,11 @@ def get_bignoise(q):
 
     return ambulance
 
+def get_lighting(q):
 
 
-def store_world(R,G,B,soundLevel,tLight):
+
+def store_world(R,G,B,soundLevel,tLight, photoR):
 
     msg = world_t()
     msg.R = R
@@ -63,6 +65,7 @@ def store_world(R,G,B,soundLevel,tLight):
     msg.B = B
     msg.soundLevel = soundLevel
     msg.trafficLight = tLight
+    msg.photoResistor = photoR
     return msg
 
 
@@ -74,14 +77,17 @@ def store_world(R,G,B,soundLevel,tLight):
 
 q_RGB = Queue()
 q_bigNoise = Queue()
+q_lighting = Queue()
 
 #Launch the RGB thread
 p1 = Process(target=get_RGB,args=(q_RGB,))
 p2 = Process(target=get_bignoise,args=(q_bigNoise,))
+p3 = Process(target=get_lighting,args=(q_lighting,))
 
 p1.start()
 p2.start()
-#p3.start() thread for camera listening
+p3.start() 
+#p4.start() thread for camera listening
 
 #Launch the big noise thread
 
@@ -90,7 +96,7 @@ while 1==1:
 
     RGB = q_RGB.get()
     ambulance = q_bigNoise.get()
-
+    lighting = q_lighting.get()
     #Subscribe to the traffic light from the camera controller
 
     #tLightStatus
@@ -98,7 +104,7 @@ while 1==1:
     print("Ambulance: "+ambulance)
 
     #store world
-    msg = store_world(RGB[0],RGB[1],RGB[2],ambulance,tLightStatus)
+    msg = store_world(RGB[0],RGB[1],RGB[2],ambulance,tLightStatus, lighting)
     lcm = lcm.LCM()
     lcm.publish("world",msg.encode())
     print("Published!")
