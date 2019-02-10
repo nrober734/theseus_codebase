@@ -51,7 +51,7 @@ class rgb_sensor:
         #         rgblist.append(colorlist)
         #         colorlist = []
         #     colorlist.append(self.raw_ardu_input(ser_ch))
-        while counter < 5:
+        while counter < 4:
             temp = self.raw_ardu_input(ser_ch)[2]
             print (temp)
             if temp.isdigit():
@@ -62,7 +62,7 @@ class rgb_sensor:
                 colorlist = []
 
 
-        
+
 
 
 
