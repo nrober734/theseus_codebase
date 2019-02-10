@@ -57,6 +57,11 @@ class rgb_sensor:
         print(self.raw_ardu_input(ser_ch))
         print(self.raw_ardu_input(ser_ch)[0])
         print(self.raw_ardu_input(ser_ch)[1])
+        print(self.raw_ardu_input(ser_ch)[2])
+        print(self.raw_ardu_input(ser_ch)[3])
+        print(self.raw_ardu_input(ser_ch)[2].isdigit())
+
+
 
 
         return self.raw_ardu_input(ser_ch).isdigit()
