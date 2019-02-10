@@ -11,15 +11,14 @@ import keyboard
 THESEUS = Robot(left=(24,8), right=(9,22))
 
 #Start the camera
-#cam = startCam()
-#cam.runCam()
+
 
 def runTheseus(bot,speed,command):
 
     #command = input("Enter command: ")
 
     while 1==1:
-        
+
         command = input(" ")
         if command=="w":
             bot.forward(speed)
@@ -32,6 +31,12 @@ def runTheseus(bot,speed,command):
 
 speed = 1
 
+count=0
 while 1==1:
+
+    if count<1:
+        cam = startCam()
+        cam.runCam()
     command = input("Enter command: ")
     runTheseus(THESEUS,speed,command)
+    count+=1
