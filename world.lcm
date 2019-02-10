@@ -1,0 +1,10 @@
+package world;
+struct world_t
+{
+    double R
+    double G
+    double B
+    boolean soundLevel
+    double trafficLight
+    
+}
