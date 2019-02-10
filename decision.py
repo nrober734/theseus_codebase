@@ -56,15 +56,19 @@ def make_decision(state, centerline):
     if state.soundLevel == True:
         # pull the fuck over
 
+    elif state.photoResistor == True:
+        # turn on headlights
     else:
+        # turn off headlights
         if state.trafficLight == 4 or state.trafficLight == 3:
             direction_and_speed = choose_direction(state, centerline)
-
+            if direction_and_speed[0] != 0:
+                # turn on turn indicators
         elif state.trafficLight == 1:
             # STOP FOR THE RED LIGHT
 
         else:
             # light is yellow, judge it on distance
-
+            # for now, assume stop
 
             
