@@ -10,7 +10,7 @@ import adafruit_tcs34725
 class rgb_sensor:
     'Class to initialize and use the rgb sensors for the THESEUS robot'
     def __init__(self):
-        r, b, g, c
+        #self.r, self.b, self.g, self.c
         # Initialize I2C bus and sensor.
         i2c = busio.I2C(board.SCL, board.SDA)
         self.sensor = adafruit_tcs34725.TCS34725(i2c)
