@@ -6,5 +6,6 @@ struct world_t
     double RIGHT[3]
     boolean soundLevel
     double trafficLight
+    boolean photoResistor
     
 }
