@@ -14,9 +14,10 @@ print ("We aboutta go in")
     #results = rbginsberg.raw_ardu_input(ser)
     #print(results)
 
-var = rbginsberg.ardu_RGB_input(ser)
-print("----------------------------")
-print(var)
+for k in range(15):
+    var = rbginsberg.ardu_RGB_input(ser)
+    print("----------------------------")
+    print(var)
 # results = rbginsberg.raw_ardu_input(ser)
 # print(results)
 #print("We didn't make it in")
