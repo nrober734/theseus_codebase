@@ -50,7 +50,7 @@ class rgb_sensor:
 
             if temp.isdigit():
                 colorlist.append(temp)
-            if " " in temp:
+            if " " in temp or ' ' in temp:
                 counter += 1
                 rgblist.append(colorlist)
                 colorlist = []
