@@ -63,10 +63,10 @@ class rgb_sensor:
         bval = ''.join(rgblist[2])
         cval = ''.join(rgblist[3])
 
-        self.r = int(rval,base = 10)
-        self.g = int(gval,base = 10)
-        self.b = int(bval,base = 10)
-        self.c = int(cval,base = 10)
+        self.r = float(rval)
+        self.g = float(gval)
+        self.b = float(bval)
+        self.c = float(cval)
 
 
 
