@@ -32,22 +32,23 @@ def choose_direction(world_state, centerline):
             if center_on_line:
                 # if center sensor is also on line, we have reached an intersection
                 # decide to turn/go straight
+
             else:
                 return (0, 0)
         else:
             if center_on_line:
                 #we have reached an intersection, determine what to do
-
+                
     elif center_on_line:
         if centerline == True:
             return (0, 0)
         else:
-            return (2, .25)
+            return (2, low_speed)
     else:
         if centerline == True:
-            return (2, .25)
+            return (2, low_speed)
         else:
-            return (1, .25)
+            return (1, .low_speed)
 
 
 
