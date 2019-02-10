@@ -14,7 +14,7 @@ print ("We aboutta go in")
     #results = rbginsberg.raw_ardu_input(ser)
     #print(results)
 
-for k in range(10):
+while True:
     var = rbginsberg.ardu_RGB_input(ser)
     print("----------------------------")
     print(var)
