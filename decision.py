@@ -23,36 +23,37 @@ import sound
 
 # returns 0 if continuing straight, 1 if should turn left, 2 if should turn right
 # if turning, will also return a non-zero value of intensity
-def choose_direction(world_state, centerline):
+def choose_direction(world_state, centerline, num_intersections):
     left_on_line = on_line(world_state.LEFT[0], world_state.LEFT[1], world_state.LEFT[2])
     center_on_line = on_line(world_state.CENTER[0], world_state.CENTER[1], world_state.CENTER[2])
     right_on_line = on_line(world_state.RIGHT[0], world_state.RIGHT[1], world_state.RIGHT[2])
     if left_on_line:
-        if centerline == False:
-            if center_on_line:
-                # if center sensor is also on line, we have reached an intersection
-                # decide to turn/go straight
-
+        if center_on_line:
+            #we have reached an intersection, determine what to do
+            if num_intersections < 2:
+                return (1, high_speed)
             else:
-                return (0, 0)
+                return (2, high_speed)
         else:
-            if center_on_line:
-                #we have reached an intersection, determine what to do
+            # correct left
+            return (1, low_speed)
                 
     elif center_on_line:
-        if centerline == True:
+        if right_on_line:
+            #we have reached an intersection
+            if num_intersections < 2:
+                return (1, high_speed)
+            else:
+                return (2, high_speed)
+        else:
             return (0, 0)
-        else:
-            return (2, low_speed)
     else:
-        if centerline == True:
-            return (2, low_speed)
-        else:
-            return (1, .low_speed)
+        return (2, low_speed)
 
 
 
 def make_decision(state, centerline):
+    intersection_count = 0
     if state.soundLevel == True:
         # pull the fuck over
 
@@ -61,14 +62,10 @@ def make_decision(state, centerline):
     else:
         # turn off headlights
         if state.trafficLight == 4 or state.trafficLight == 3:
-            direction_and_speed = choose_direction(state, centerline)
-            if direction_and_speed[0] != 0:
+            direction_and_speed = choose_direction(state, centerline, intersection_count)
+            if direction_and_speed[0] != 0 and direction_and_speed[1] != low_speed:
                 # turn on turn indicators
-        elif state.trafficLight == 1:
-            # STOP FOR THE RED LIGHT
-
         else:
-            # light is yellow, judge it on distance
-            # for now, assume stop
+            # light is yellow or red, so  stop
 
             
