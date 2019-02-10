@@ -14,6 +14,9 @@ class rgb_sensor:
         self.b = 0
         self.g = 0
         self.c = 0
+
+
+    def init_rp_rgb(self):
         # Initialize I2C bus and sensor.
         self.i2c = busio.I2C(board.SCL, board.SDA)
         self.sensor = adafruit_tcs34725.TCS34725(self.i2c)
