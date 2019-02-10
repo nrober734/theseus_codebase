@@ -1,9 +1,9 @@
 package world;
 struct world_t
 {
-    double R
-    double G
-    double B
+    double LEFT[3]
+    double CENTER[3]
+    double RIGHT[3]
     boolean soundLevel
     double trafficLight
     
