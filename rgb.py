@@ -103,3 +103,11 @@ def on_line(r, g, b):
         return true
     else:
         return false
+
+def error_skip(self,vec,ser_ch):
+    for k in range(2)
+        for j in range(3)
+            if vec[k][j] not in range(0,65556)
+                self.ardu_RGB_input(ser_ch)
+                return False
+return True
