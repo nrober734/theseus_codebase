@@ -22,22 +22,13 @@ class rgb_sensor:
         # take in input and process to determine color
         self.sensor.getRawInput(r, b, g, c)
 
-    def on_line(self,r, g, b, c):
-        r_difference = abs(self.r - r)
-        g_difference = abs(self.g - g)
-        b_difference = abs(self.b - b)
-
-        if r_difference < r_allowable and g_difference < g_allowable and b_difference < b_allowable:
-            return true
-        else:
-            return false
 
     def raw_ardu_input(self,ser_ch):
         #takes in arduino serial input and returns separate r,g,b,c values
         #ser_input = str(ser_ch.readline(),"utf-8")
         ser_input = str(ser_ch.read(),'utf-8')
-        if ser_input.isalpha():
-            ser_input = ''
+        #if ser_input.isalpha():
+        #    ser_input = ""
         #rgblist = ser_input.split()
         # self.r = rgblist[0]
         # self.g = rgblist[1]
@@ -52,9 +43,12 @@ class rgb_sensor:
         colorlist = []
         rgblist = []
         counter = 0
-        while counter < 5:
-            while ' ' not in self.raw_ardu_input(ser_ch):
+        rgbcount = 0
+        while counter < 50:
+            if " "  not in self.raw_ardu_input(ser_ch) and self.raw_ardu_input(ser_ch).isdigit() == True:
                 colorlist.append(self.raw_ardu_input(ser_ch))
+                print(self.raw_ardu_input(ser_ch))
+
             rgblist.append(colorlist)
             counter+=1
 
@@ -73,3 +67,14 @@ class rgb_sensor:
 
     def getC(self):
         return self.c
+
+
+def on_line(r, g, b):
+    r_difference = abs(r_line - r)
+    g_difference = abs(r_line - g)
+    b_difference = abs(r_line - b)
+
+    if r_difference < r_allowable and g_difference < g_allowable and b_difference < b_allowable:
+        return true
+    else:
+        return false
