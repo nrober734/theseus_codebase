@@ -57,16 +57,18 @@ class rgb_sensor:
 
 
 
+        try:
+            rval = ''.join(rgblist[0])
+            gval = ''.join(rgblist[1])
+            bval = ''.join(rgblist[2])
+            cval = ''.join(rgblist[3])
 
-        rval = ''.join(rgblist[0])
-        gval = ''.join(rgblist[1])
-        bval = ''.join(rgblist[2])
-        cval = ''.join(rgblist[3])
-
-        self.r = int(rval,10)
-        self.g = int(gval,10)
-        self.b = int(bval,10)
-        self.c = int(cval,10)
+            self.r = int(rval,10)
+            self.g = int(gval,10)
+            self.b = int(bval,10)
+            self.c = int(cval,10)
+        except ValueError:
+            print("oops")
 
 
 
