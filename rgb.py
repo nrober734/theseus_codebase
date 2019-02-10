@@ -12,7 +12,7 @@ class rgb_sensor:
     def __init__(self):
         #self.r, self.b, self.g, self.c
         # Initialize I2C bus and sensor.
-        i2c = busio.I2C(board.SCL, board.SDA)
+        self.i2c = busio.I2C(board.SCL, board.SDA)
         self.sensor = adafruit_tcs34725.TCS34725(i2c)
 
     def process_input(self):
@@ -20,7 +20,7 @@ class rgb_sensor:
         self.r, self.b, self.g, self.c = 0, 0, 0, 0
         self.sensor.getRawInput(r, b, g, c)
 
-    def on_line(r, g, b, c):
+    def on_line(self,r, g, b, c):
         r_difference = abs(self.r - r)
         g_difference = abs(self.g - g)
         b_difference = abs(self.b - b)
@@ -30,10 +30,10 @@ class rgb_sensor:
         else:
             return false
 
-    def ardu_input(self,ser_ch):
+    def raw_ardu_input(self,ser_ch):
         #takes in arduino serial input and returns separate r,g,b,c values
         #ser_input = str(ser_ch.readline(),"utf-8")
-        ser_input = str(ser_ch.read(8),"utf-8")
+        ser_input = str(ser_ch.read(),"utf-8")
         #rgblist = ser_input.split()
         # self.r = rgblist[0]
         # self.g = rgblist[1]
@@ -41,8 +41,23 @@ class rgb_sensor:
         # self.c = rgblist[3]
 
 
-        return self
+        return ser_input
         #return self.r,self.g,self.b,self.c
+
+    def ardu_RGB_input(self,string):
+
+        for k in range(7):
+            if string[k] is not " ":
+                if k==0:
+                    self.r = int(string[k])
+                elif k==3:
+                    self.g == int(string[k])
+                elif k==5:
+                    self.b == int(string[k])
+                elif k==7:
+                    self.c == int(string[k])
+
+        return [self.r,self.g,self.b,self.c]
 
     def getR(self):
         return self.r
