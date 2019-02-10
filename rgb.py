@@ -41,14 +41,16 @@ class rgb_sensor:
 
     def ardu_RGB_input(self,ser_ch):
         colorlist = []
-        rgblist = [3]
+        rgblist = [None] * 4
         counter = 0
+        rgbcount = 0
         while counter < 5:
             while " "  not in self.raw_ardu_input(ser_ch) and self.raw_ardu_input(ser_ch).isdigit() == True:
                 colorlist.append(self.raw_ardu_input(ser_ch))
+
             rgblist.append(colorlist)
             counter+=1
-
+            print counter
 
 
         return rgblist
