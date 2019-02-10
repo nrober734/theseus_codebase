@@ -25,7 +25,7 @@ class rgb_sensor:
         g_difference = abs(self.g - g)
         b_difference = abs(self.b - b)
 
-        if r_difference < r_allowable AND g_difference < g_allowable AND b_difference < b_allowable:
+        if r_difference < r_allowable and g_difference < g_allowable and b_difference < b_allowable:
             return true
         else:
             return false
