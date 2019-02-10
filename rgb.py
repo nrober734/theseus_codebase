@@ -37,7 +37,7 @@ class rgb_sensor:
         #ser_input = str(ser_ch.readline(),"utf-8")
         ser_input = str(ser_ch.read(),'utf-8')
         if ser_input.isalpha():
-            ser_input = ''
+            ser_input = 'A'
         #rgblist = ser_input.split()
         # self.r = rgblist[0]
         # self.g = rgblist[1]
