@@ -49,14 +49,14 @@ class rgb_sensor:
     def ardu_RGB_input(self,ser_ch):
         rgblist = []
         counter = 0
-        while count < 5:
-            if self.raw_ardu_input[0][2] is not " "
-                rgblist.append(self.raw_ardu_input(ser_ch)[0][2])
+        #while count < 5:
+            #if self.raw_ardu_input[0][2] is not " "
+                #rgblist.append(self.raw_ardu_input(ser_ch)[0][2])
 
-            counter+=1
+            #counter+=1
 
 
-        return rgblist
+        return self.raw_ardu_input(ser_ch)[0][2]
 
     def getR(self):
         return self.r
