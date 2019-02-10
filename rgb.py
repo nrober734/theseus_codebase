@@ -23,7 +23,7 @@ class rgb_sensor:
 
     def process_input(self):
         # take in input and process to determine color
-        self.sensor.getRawInput(r, b, g, c)
+        self.sensor.getRawInput(r, g, b, c)
 
 
     def raw_ardu_input(self,ser_ch):
@@ -47,30 +47,39 @@ class rgb_sensor:
         rgblist = []
         counter = 0
         rgbcount = 0
-        # while counter < 5:
-        #     # if self.raw_ardu_input(ser_ch).isdigit():
-        #     if " " in self.raw_ardu_input(ser_ch):
-        #         counter+=1
-        #         rgblist.append(colorlist)
-        #         colorlist = []
-        #     colorlist.append(self.raw_ardu_input(ser_ch))
+
         while counter < 4:
             temp = self.raw_ardu_input(ser_ch)[2]
-            print (temp)
+
             if temp.isdigit():
                 colorlist.append(temp)
-            if " " in temp:
+            if " " in temp or ' ' in temp:
                 counter += 1
                 rgblist.append(colorlist)
                 colorlist = []
 
 
 
+        try:
+            rval = ''.join(rgblist[0])
+            gval = ''.join(rgblist[1])
+            bval = ''.join(rgblist[2])
+            cval = ''.join(rgblist[3])
+
+            self.r = int(rval,10)
+            self.g = int(gval,10)
+            self.b = int(bval,10)
+            self.c = int(cval,10)
+        except ValueError:
+            rdbcVal = [-1,-1,-1,-1]
 
 
 
+        rgbcVal = [self.r,self.g,self.b,self.c]
 
-        return rgblist
+
+
+        return rgbcVal
 
     def getR(self):
         return self.r
