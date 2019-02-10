@@ -56,7 +56,7 @@ class rgb_sensor:
             #counter+=1
 
 
-        return self.raw_ardu_input(ser_ch)[0][1]
+        return self.raw_ardu_input(ser_ch)[0][0]
 
     def getR(self):
         return self.r
