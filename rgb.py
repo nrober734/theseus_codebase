@@ -33,7 +33,7 @@ class rgb_sensor:
     def raw_ardu_input(self,ser_ch):
         #takes in arduino serial input and returns separate r,g,b,c values
         #ser_input = str(ser_ch.readline(),"utf-8")
-        ser_input = str(ser_ch.read(),"utf-8")
+        ser_input = str(ser_ch.read(),'utf-8')
         #rgblist = ser_input.split()
         # self.r = rgblist[0]
         # self.g = rgblist[1]
@@ -47,7 +47,7 @@ class rgb_sensor:
     def ardu_RGB_input(self,string):
 
         for k in range(7):
-            if string[k] is not " ":
+            if string[k] is not ' ':
                 if k==0:
                     self.r = int(string[k])
                 elif k==3:
