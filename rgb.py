@@ -21,9 +21,9 @@ class rgb_sensor:
         self.sensor.getRawInput(r, b, g, c)
 
     def on_line(r, g, b, c):
-        r_difference = abs(self.r - r_line)
-        g_difference = abs(self.g - g_line)
-        b_difference = abs(self.b - b_line)
+        r_difference = abs(self.r - r)
+        g_difference = abs(self.g - g)
+        b_difference = abs(self.b - b)
 
         if r_difference < r_allowable AND g_difference < g_allowable AND b_difference < b_allowable:
             return true
@@ -34,10 +34,10 @@ class rgb_sensor:
         #takes in arduino serial input and returns separate r,g,b,c values
         ser_input = ser_ch.readline()
         rgblist = ser_input.split(',')
-        r = rgblist[0]
-        g = rgblist[1]
-        b = rgblist[2]
-        c = rgblist[3]
+        r = rgblist[-4]
+        g = rgblist[-3]
+        b = rgblist[-2]
+        c = rgblist[-1]
 
         return r,g,b,c
 
