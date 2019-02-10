@@ -52,7 +52,7 @@ class rgb_sensor:
         colorlist = []
         rgblist = []
         counter = 0
-        while counter < 5
+        while counter < 5:
             while ' ' not in self.raw_ardu_input(ser_ch):
                 colorlist.append(self.raw_ardu_input(ser_ch))
             rgblist.append(colorlist)
