@@ -1,10 +1,9 @@
 from picamera import PiCamera
 from time import sleep
 from gpiozero import Robot
-from rgb import *
+#from rgb import *
 from sound import *
 from gpiozero import LED
-from camera_control import *
 import keyboard
 
 
@@ -31,12 +30,8 @@ def runTheseus(bot,speed,command):
 
 speed = 1
 
-count=0
 while 1==1:
 
-    if count<1:
-        cam = startCam()
-        cam.runCam()
+
     command = input("Enter command: ")
     runTheseus(THESEUS,speed,command)
-    count+=1

@@ -4,6 +4,8 @@
 from multiprocessing import Queue
 from multiprocessing import Process
 
+from decision import *
+
 #LCM
 import lcm
 
@@ -90,10 +92,9 @@ p3.start()
 #p4.start() thread for camera listening
 
 #Launch the big noise thread
-
-
+robot = THESEUS()
+light = lights()
 while 1==1:
-
     RGB = q_RGB.get()
     ambulance = q_bigNoise.get()
     lighting = q_lighting.get()
@@ -108,6 +109,8 @@ while 1==1:
     lcm = lcm.LCM()
     lcm.publish("world",msg.encode())
     print("Published!")
+    make_decision(msg, True, robot, light)
+	
     sleep(1) #rate of publishing
 
 

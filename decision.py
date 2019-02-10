@@ -56,7 +56,7 @@ def choose_direction(world_state, centerline, num_intersections):
 
 
 
-def make_decision(state, centerline):
+def make_decision(state, centerline, robot, light):
     intersection_count = 0
     if state.soundLevel == True:
         # pull the fuck over
@@ -82,5 +82,3 @@ def make_decision(state, centerline):
         else:
             # light is yellow or red, so  stop
             robot.all_stop()
-
-            
