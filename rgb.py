@@ -68,7 +68,7 @@ class rgb_sensor:
             self.b = int(bval,10)
             self.c = int(cval,10)
         except ValueError:
-            print("oops")
+            rdbcVal = [-1,-1,-1,-1]
 
 
 
