@@ -51,7 +51,7 @@ class rgb_sensor:
         counter = 0
         while counter < 9:
             rgblist.append(self.raw_ardu_input(ser_ch))
-
+            counter+=1
 
 
         return rgblist
