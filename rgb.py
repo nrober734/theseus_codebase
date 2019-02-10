@@ -34,10 +34,10 @@ class rgb_sensor:
         #takes in arduino serial input and returns separate r,g,b,c values
         ser_input = str(ser_ch.readline(),"utf-8")
         rgblist = ser_input.split(',')
-        self.r = rgblist[-4]
-        self.g = rgblist[-3]
-        self.b = rgblist[-2]
-        self.c = rgblist[-1]
+        self.r = rgblist[0]
+        self.g = rgblist[1]
+        self.b = rgblist[2]
+        self.c = rgblist[3]
 
         return self.r,self.g,self.b,self.c
 
