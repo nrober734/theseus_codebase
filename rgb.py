@@ -34,12 +34,12 @@ class rgb_sensor:
         #takes in arduino serial input and returns separate r,g,b,c values
         ser_input = ser_ch.readline()
         rgblist = ser_input.split(',')
-        r = rgblist[-4]
-        g = rgblist[-3]
-        b = rgblist[-2]
-        c = rgblist[-1]
+        self.r = rgblist[-4]
+        self.g = rgblist[-3]
+        self.b = rgblist[-2]
+        self.c = rgblist[-1]
 
-        return r,g,b,c
+        return self.r,self.g,self.b,self.c
 
     def getR(self):
         return self.r
