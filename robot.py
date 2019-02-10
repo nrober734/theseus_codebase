@@ -4,34 +4,28 @@ from sound import *
 from gpiozero import LED
 
 
-THESEUS = Robot(left=(24,8), right=(9,22))
-MAX_SPEED = 0.5
-stay_in_lane = True
+class THESEUS:
+    'class that controls the motor on the robot'
+    THESEUS_turning = Robot(left=(,), right=(,))
+    THESEUS_direction = Robot(left=(,), right=(,))
+    
+    def __init__(self):
 
-# initialize all sensors on the robot
-rgb1 = rbg_sensor()
-rgb2 = rbg_sensor()
-rgb3 = rbg_sensor()
-headlamp1 = LED()
-headlamp2 = LED()
-amb_sensor = sound_sensor()
+    def forward_straight(self, time, speed):
+        for i in range(time):
+            THESEUS_direction.forward(speed)
 
+    def forward_right(self, time):
+        for i in range(time):
+            THESEUS_direction.forward(speed)
+            THESEUS_turning.forward(speed);
 
-# until we stop the robot, continue looping
+    def forward_left(self, time):
+        for i in range(time):
+            THESEUS_direction.forward(speed)
+            THESEUS_turning.backward(speed)
 
-# check to make sure robot is within lines, if not, adjust
+    def all_stop(self):
+        THESEUS_direction.stop()
+        THESEUS_turning.stop()
 
-# if robot isn't turning, ensure that the blinker is off
-
-# if robot is turning, turn on the correct blinker
-
-# check to make sure there isn't an ambulance noise
-# if so, pull over and stop until it stops
-
-# if photoresistor detects limited visibility, turn on headlamps
-# also begin tracking to centerline instead of lane markers
-stay_in_lane = False
-
-
-# if we end program, stop robot
-THESEUS.stop()
