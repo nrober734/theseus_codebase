@@ -10,14 +10,16 @@ import adafruit_tcs34725
 class rgb_sensor:
     'Class to initialize and use the rgb sensors for the THESEUS robot'
     def __init__(self):
-        self.r, self.b, self.g, self.c
+        self.r = 0
+        self.b = 0
+        self.g = 0
+        self.c = 0
         # Initialize I2C bus and sensor.
         self.i2c = busio.I2C(board.SCL, board.SDA)
         self.sensor = adafruit_tcs34725.TCS34725(self.i2c)
 
     def process_input(self):
         # take in input and process to determine color
-        self.r, self.b, self.g, self.c = 0, 0, 0, 0
         self.sensor.getRawInput(r, b, g, c)
 
     def on_line(self,r, g, b, c):
