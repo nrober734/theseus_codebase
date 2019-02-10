@@ -51,5 +51,19 @@ def choose_direction(world_state, centerline):
 
 
 
+def make_decision(state, centerline):
+    if state.soundLevel == True:
+        # pull the fuck over
+
+    else:
+        if state.trafficLight == 4 or state.trafficLight == 3:
+            direction_and_speed = choose_direction(state, centerline)
+
+        elif state.trafficLight == 1:
+            # STOP FOR THE RED LIGHT
+
+        else:
+            # light is yellow, judge it on distance
 
 
+            
