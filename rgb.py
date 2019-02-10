@@ -55,15 +55,12 @@ class rgb_sensor:
                 rgblist.append(colorlist)
                 colorlist = []
 
-        self.r = ''.join(rgblist[0])
-        self.g = ''.join(rgblist[1])
-        self.b = ''.join(rgblist[2])
-        self.c = ''.join(rgblist[3])
+        self.r = rgblist[0].join('')
+        self.g = rgblist[1].join('')
+        self.b = rgblist[2].join('')
+        self.c = rgblist[3].join('')
 
-        self.r = int(self.r)
-        self.g = int(self.g)
-        self.b = int(self.b)
-        self.c = int(self.c)
+        
 
 
 
