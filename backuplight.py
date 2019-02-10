@@ -12,7 +12,7 @@ class makeYolo:
     def __init__(self,image):
         self.image = image
         self.config = "yolov3.cfg"
-        self.weights = "yolov3.weights"
+        self.weights = "home/pi/Documents/yolov3.weights"
         self.classes = "yolov3.txt"
 
 def colorHelper(north,south,east,west):
