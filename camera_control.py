@@ -13,3 +13,6 @@ class startCam():
        sleep(10)
        self.camera.stop_recording()
        self.camera.stop_preview()
+
+cam = startCam()
+cam.runCam()
