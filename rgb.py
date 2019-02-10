@@ -57,7 +57,7 @@ class rgb_sensor:
 
 
 
-        return self.raw_ardu_input(ser_ch)
+        return self.raw_ardu_input(ser_ch).isdigit()
 
     def getR(self):
         return self.r
