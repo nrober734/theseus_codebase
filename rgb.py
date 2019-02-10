@@ -26,7 +26,7 @@ class rgb_sensor:
     def raw_ardu_input(self,ser_ch):
         #takes in arduino serial input and returns separate r,g,b,c values
         #ser_input = str(ser_ch.readline(),"utf-8")
-        ser_input = str(ser_ch.read(),'utf-8')
+        ser_input = str(ser_ch.read())
         #if ser_input.isalpha():
         #    ser_input = ""
         #rgblist = ser_input.split()
@@ -44,20 +44,20 @@ class rgb_sensor:
         rgblist = []
         counter = 0
         rgbcount = 0
-        while counter < 5:
-            # if self.raw_ardu_input(ser_ch).isdigit():
-            if " " in self.raw_ardu_input(ser_ch):
-                counter+=1
-                rgblist.append(colorlist)
-                colorlist = []
-            colorlist.append(self.raw_ardu_input(ser_ch))
+        # while counter < 5:
+        #     # if self.raw_ardu_input(ser_ch).isdigit():
+        #     if " " in self.raw_ardu_input(ser_ch):
+        #         counter+=1
+        #         rgblist.append(colorlist)
+        #         colorlist = []
+        #     colorlist.append(self.raw_ardu_input(ser_ch))
 
 
 
 
 
 
-        return rgblist
+        return raw_ardu_input(ser_ch)
 
     def getR(self):
         return self.r
