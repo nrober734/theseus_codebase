@@ -50,7 +50,7 @@ class rgb_sensor:
 
             rgblist.append(colorlist)
             counter+=1
-            print counter
+            print(counter)
 
 
         return rgblist
