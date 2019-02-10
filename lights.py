@@ -5,6 +5,7 @@ import RPi.GPIO as GPIO
 left_headlamp = 22
 right_headlamp = 24
 
+
 left_blinker = 11
 right_blinker = 13
 
@@ -16,6 +17,7 @@ class lights:
         GPIO.setup(right_headlamp, GPIO.OUT)
         GPIO.setup(left_blinker, GPIO.OUT)
         GPIO.setup(right_blinker, GPIO.OUT)
+
 
     def turn_right(self):
         GPIO.output(right_blinker, GPIO.HIGH)
@@ -32,3 +34,4 @@ class lights:
         else:
             GPIO.setup(right_headlamp, GPIO.LOW)
             GPIO.setup(left_headlam, GPIO.LOW)
+    def when_dark(self):
