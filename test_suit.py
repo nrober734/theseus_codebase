@@ -15,6 +15,7 @@ print ("We aboutta go in")
 results = rbginsberg.raw_ardu_input(ser)
 print(results)
 results = rbginsberg.raw_ardu_input(ser)
+print(results)
 #print("We didn't make it in")
     # for i in results:
     #     print(i)
