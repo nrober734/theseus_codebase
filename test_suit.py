@@ -15,6 +15,7 @@ print ("We aboutta go in")
     #print(results)
 
 var = rbginsberg.ardu_RGB_input(ser)
+print("----------------------------")
 print(var)
 # results = rbginsberg.raw_ardu_input(ser)
 # print(results)
