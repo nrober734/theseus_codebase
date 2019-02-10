@@ -9,7 +9,7 @@ ser.baudrate=9600
 #GPIO.setup(11, GPIO.OUT)
 while True:
 
-    read_ser=ser.readline()
+    read_ser=ser.read(8)
     print(read_ser)
-    if(read_ser=="Hello From Arduino!"):
-        blink(11)
+   # if(read_ser=="Hello From Arduino!"):
+   #     blink(11)
