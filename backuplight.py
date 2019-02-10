@@ -11,9 +11,9 @@ import os
 class makeYolo:
     def __init__(self,image):
         self.image = image
-        self.config = "yolov3.cfg"
-        self.weights = "yolov3.weights"
-        self.classes = "yolov3.txt"
+        self.config = "object-detection-opencv-master/yolov3.cfg"
+        self.weights = "/home/pi/Documents/yolov3.weights"
+        self.classes = "object-detection-opencv-master/yolov3.txt"
 
 def colorHelper(north,south,east,west):
 
@@ -110,6 +110,8 @@ while 1==1:
     #call image processing module to return light color
     color = get_Color(dirNew)
 
+    os.delete(dirNew)
+    os.delete(dir)
 
     #publish Tlight LCM
     msg.present = yeah_light

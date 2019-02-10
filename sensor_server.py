@@ -41,8 +41,8 @@ def get_RGB(q):
     center_rgb = center_sensor.process_input()
     right_sensor = rgb_sensor()
     right_rgb = right_sensor.ardu_RGB_input(right_serial)
-
-    rgb = [left_rgb, center_rgb, right_rgb]
+    if left_rgb.error_skip(left_rgb,left_serial) or right_rgb.error_skip(right_rgb,right_serial):
+        rgb = [left_rgb, center_rgb, right_rgb]
 
     return rgb
 
@@ -86,7 +86,7 @@ p3 = Process(target=get_lighting,args=(q_lighting,))
 
 p1.start()
 p2.start()
-p3.start() 
+p3.start()
 #p4.start() thread for camera listening
 
 #Launch the big noise thread
