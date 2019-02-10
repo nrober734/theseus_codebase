@@ -50,9 +50,8 @@ class rgb_sensor:
         rgblist = []
         counter = 0
         while counter < 9:
-            if self.raw_ardu_input(ser_ch) is not "b' '"
-                rgblist.append(self.raw_ardu_input(ser_ch))
-                counter+=1
+            rgblist.append(self.raw_ardu_input(ser_ch))
+            counter+=1
 
 
         return rgblist[0][0]
