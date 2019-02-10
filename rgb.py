@@ -47,19 +47,14 @@ class rgb_sensor:
         #return self.r,self.g,self.b,self.c
 
     def ardu_RGB_input(self,ser_ch):
+        rgblist = []
+        counter = 0
+        while counter < 9:
+            rgblist.append(raw_ardu_input(ser_ch))
 
-        for k in range(7):
-            if string is not ' ':
-                if k==0:
-                    self.r = int(raw_ardu_input(ser_ch))
-                elif k==3:
-                    self.g == int(string)
-                elif k==5:
-                    self.b == int(string)
-                elif k==7:
-                    self.c == int(string)
 
-        return [self.r,self.g,self.b,self.c]
+
+        return rgblist
 
     def getR(self):
         return self.r
