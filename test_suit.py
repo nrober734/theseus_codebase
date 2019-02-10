@@ -9,7 +9,7 @@ def main():
     ruthbaderginsberg = rgb_sensor()
     results = ruthbaderginsberg.ardu_input(ser)
 
-    for i in results:
-        print(i)
-
-        
+    while True:
+        print(results)
+    # for i in results:
+    #     print(i)
